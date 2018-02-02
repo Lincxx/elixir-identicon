@@ -3,6 +3,17 @@ defmodule Identicon do
   def main(input) do
     input
     |> hash_input
+    |> pick_color
+  end
+
+  def pick_color(image) do
+   %Identicon.Image{hex: hex_list} = image
+   #| _tail says I ackonwledge that there are others in the list, but I don't care about them
+   [r, g, b | _tail] = hex_list
+   [r,g,b]
+
+  #  or we can shrink this 
+  #   %Identicon.Image{hex: [r, g, b | _tail]} = image
   end
 
   def hash_input(input) do
@@ -11,5 +22,7 @@ defmodule Identicon do
 
     %Identicon.Image{hex: hex}
   end
+
+
 
 end
